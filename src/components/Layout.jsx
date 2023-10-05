@@ -4,17 +4,36 @@ import Animation from './Animation'
 const Layout = () => {
     return (
         <div className='layout'>
-            <header className='mt-5'>
-                <div className='flex justify-around space-x-4'>
-                    <div className="logo">M<span>AD</span></div>
-                    <ul className='flex justify-center space-x-4'>
-                        <li><NavLink to={"/"}className={"font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"} >Home</NavLink></li>
-                        <li><NavLink to={"/about"}className={"font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"} >Portfolio</NavLink></li>
-                        <li><NavLink to={"/works"}className={"font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"} >Works</NavLink></li>
-                        <li><NavLink to={"/skills"}className={"font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"} >Skills</NavLink></li>
-                        <li><NavLink to={"/contact"}className={"font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"} >Contact</NavLink></li>
-                    </ul>
+            <header>
+                <div className="logo">M<span>AD</span></div>
+                <ul className='nav-links'>
+
+                    <li className='nav-link '>
+                        <NavLink to={"/"} >Home</NavLink>
+                        <span className='underline'></span>
+                    </li>
+
+                    <li className='nav-link '>
+                        <NavLink to={"/about"} >Portfolio</NavLink>
+                        <span className='underline'></span>
+                    </li>
+
+                    <li className='nav-link '>
+                        <NavLink to={"/works"} >Works</NavLink>
+                        <span className='underline'></span>
+                    </li>
+
+                    <li className='nav-link '>
+                        <NavLink to={"/skills"} >Skills</NavLink>
+                        <span className='underline'></span>
+                    </li>
+                </ul>
+
+                <div className="contact-container">
+                    <span>Contact</span>
+                    <span className='underline'></span>
                 </div>
+
             </header>
 
             <div className="main">
