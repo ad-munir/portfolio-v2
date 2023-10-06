@@ -1,23 +1,61 @@
-import { motion } from "framer-motion"
+import { motion, useScroll, useSpring } from "framer-motion"
 import Animation from "./Animation"
+import { useRef } from "react";
+import { UseFollowPointer } from "../helpers/UseFollowPointer";
 
 const Home = () => {
+
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // const ref = useRef(null);
+    const [{x,y}, ref] = UseFollowPointer();
+
+
     return (
         <motion.div>
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-2 bg-tailwind-2 origin-left"
+                style={{ scaleX: scrollYProgress }}
+            />
+
+            <motion.div
+                ref={ref}
+                className="w-16 h-16 rounded-[50%] border border-black"
+                animate={{ x, y }}
+                transition={{
+                    type: "spring",
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001
+                }}
+            />
             <Animation />
 
             <section className="content">
                 <div className="name-container">
                     <h4 className="hero-title font-semibold">Hi, I am</h4>
                     <h2 className="name text-5xl font-extrabold text-tailwind-3 py-3"><span className="text-tailwind-2">MOUNIR </span>AYAD</h2>
-                    <p className="subtitle italic font-medium p-2">Full Stack Web Developer</p>
+                    <p className="subtitle  p-2">Full Stack Web Developer</p>
                 </div>
                 <p className="desc py-2 text-gray-800">
                     Welcome to my portfolio. I create elegant and functional web solutions that leave an impact.
                 </p>
-                <button className="contact-btn my-5 inline-flex items-center justify-center gap-1 px-4 py-2 text-base font-medium bg-gray-900 text-teal-50 rounded-lg hover:bg-slate-700 ">
+
+                <br />
+
+                <motion.div
+                    className="contact-btn cursor-pointer my-5 inline-flex items-center justify-center gap-1 px-4 py-2 text-base font-medium bg-gray-900 text-teal-50 rounded-lg hover:bg-slate-700 "
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
                     Contact Me <i className="fa-solid fa-circle-arrow-right fa-fade"></i>
-                </button>
+                </motion.div>
 
             </section>
 
