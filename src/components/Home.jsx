@@ -5,6 +5,24 @@ const Home = () => {
     return (
         <motion.div>
             <Animation />
+
+            <section className="content">
+                <div className="name-container">
+                    <h4 className="hero-title font-semibold">Hi, I am</h4>
+                    <h2 className="name text-5xl font-extrabold text-tailwind-3 py-3"><span className="text-tailwind-2">MOUNIR </span>AYAD</h2>
+                    <p className="subtitle italic font-medium p-2">Full Stack Web Developer</p>
+                </div>
+                <p className="desc py-2 text-gray-800">
+                    Welcome to my portfolio. I create elegant and functional web solutions that leave an impact.
+                </p>
+                <button className="contact-btn my-5 inline-flex items-center justify-center gap-1 px-4 py-2 text-base font-medium bg-gray-900 text-teal-50 rounded-lg hover:bg-slate-700 ">
+                    Contact Me <i className="fa-solid fa-circle-arrow-right fa-fade"></i>
+                </button>
+
+            </section>
+
+
+
             <section className="bg-white dark:bg-gray-900">
                 <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
